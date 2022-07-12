@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Logo from '../static/logo.png';
 import { FiBookmark } from 'react-icons/fi';
 
@@ -20,39 +21,42 @@ const styles = {
 }
 const PostCard = () => {
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.postDetails}>
-                <div className={styles.authorContainer}>
-                    <div className={styles.authorImageContainer}>
-                        <Image
-                            src={Logo}
-                            alt="author image"
-                            className={styles.authorImage} 
-                            height={40}
-                            width={40}          
-                        />
+        <Link href={`/post/123`}>
+            <div className={styles.wrapper}>
+                <div className={styles.postDetails}>
+                    <div className={styles.authorContainer}>
+                        <div className={styles.authorImageContainer}>
+                            <Image
+                                src={Logo}
+                                alt="author image"
+                                className={styles.authorImage} 
+                                height={40}
+                                width={40}          
+                            />
+                        </div>
+                        <div className={styles.authorName}>Nardin L</div>
                     </div>
-                    <div className={styles.authorName}>Nardin L</div>
+                    <h1 className={styles.title}>7 Free Tools to Increase Productivity in 2022</h1>
+                    <div className={styles.briefing}>Productivity is a skill that can be learned</div>
+                    <div className={styles.detailsContainer}>
+                        <span className={styles.articleDetails}>Jul 11 • 5 min read • <span className={styles.category}>productivity</span></span>
+                        <span  className={styles.bookmarkContainer}>
+                            <FiBookmark className='h-5 w-5'/>
+                        </span>
+                    </div>
                 </div>
-                <h1 className={styles.title}>7 Free Tools to Increase Productivity in 2022</h1>
-                <div className={styles.briefing}>Productivity is a skill that can be learned</div>
-                <div className={styles.detailsContainer}>
-                    <span className={styles.articleDetails}>Jul 11 • 5 min read • <span className={styles.category}>productivity</span></span>
-                    <span  className={styles.bookmarkContainer}>
-                        <FiBookmark className='h-5 w-5'/>
-                    </span>
+                <div className={styles.thumbnailContainer}>
+                    <Image 
+                    height={100}
+                    width={100}
+                    alt='thumbnail'
+                    src={Logo}
+                    />
                 </div>
-            </div>
-            <div className={styles.thumbnailContainer}>
-                <Image 
-                height={100}
-                width={100}
-                alt='thumbnail'
-                src={Logo}
-                />
-            </div>
 
-        </div>
+            </div>
+        </Link>
+
     )
 }
 
