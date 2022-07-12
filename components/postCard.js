@@ -13,7 +13,7 @@ const styles = {
     title: `font-bold text-2xl`,
     detailsContainer: `flex items-center justify-between text-[#787878]`,
     articleDetails:`my-2 text-[.8rem]`,
-    postDetails: ``,
+    postDetails: `flex flex-col flex-[2.5]`,
     category:`bg-[#F2F3F2] rounded-full p-1`,
     bookmarkContainer:`cursor-pointer`,
     thumbnailContainer:``,
