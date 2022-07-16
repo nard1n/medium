@@ -1,6 +1,10 @@
+import ReadersNav from '../../components/ReadersNav';
+
 const Post = () => {
     return (
-        <h1> My First Medium Post </h1> 
+        <>
+            <ReadersNav />
+        </>
     )
 }
 
