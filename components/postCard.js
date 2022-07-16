@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '../static/logo.png';
+import UserImage from '../static/user.png';
 import { FiBookmark } from 'react-icons/fi';
 
 
@@ -27,7 +28,7 @@ const PostCard = () => {
                     <div className={styles.authorContainer}>
                         <div className={styles.authorImageContainer}>
                             <Image
-                                src={Logo}
+                                src={UserImage}
                                 alt="author image"
                                 className={styles.authorImage} 
                                 height={40}
