@@ -9,6 +9,7 @@ const Post = () => {
     return (
         <div className={styles.content}>
             <ReadersNav />
+            <div>Article Main Space</div>
             <Recommendations />
         </div>
     )
