@@ -19,9 +19,18 @@ const styles = {
     authorActions: `flex gap-[.6rem] my-[1rem]`,
     actionButton: `bg-[#1A8917] rounded-full text-white px-[.6rem] py-[.4rem] text-sm`,
     recommendationContainer: ``,
+    articlesContainer: ``,
+    recommendationAuthorProfileImageContainer: `rounded-full overflow-hidden w-[1.4rem] h-[1.4rem]`,
+    recommendationAuthorName: `text-sm`,
+    recommendationAuthorContainer: `flex items-center gap-[.6rem]`,
+    recommendationTitle: `font-bold`,
+    recommendationThumbnailContainer: `flex flex-1 items-center justify-center h-[4rem] w-[4rem]`,
+    recommendationThumbnail: `object-cover`,
+    articleContentWrapper: `flex items-center justify-between cursor-pointer my-[1rem]`,
+    articleContent: `flex-[4]`,
 }
 
-const Recommendations = () => {
+const Recommendations = ({ author }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.accentedButton}>Get unlimited access</div>
@@ -43,7 +52,7 @@ const Recommendations = () => {
                         height={100}
                     />
                 </div>
-                <div className={styles.authorName}>Nardin L</div>
+                <div className={styles.authorName}>Nard1n Codes</div>
                 <div className={styles.authorFollowing}>1M followers</div>
                 <div className={styles.authorActions}>
                     <button className={styles.actionButton}>Follow</button>
@@ -51,7 +60,23 @@ const Recommendations = () => {
                 </div>
             </div>
             <div className={styles.recommendationContainer}>
-
+                <div className={styles.title}>More from Medium</div>
+                <div className={styles.articlesContainer}>
+                    <div className={styles.articleContentWrapper}>
+                        <div className={styles.articleContent}>
+                            <div className={styles.recommendationAuthorContainer}>
+                                <div className={styles.recommendationAuthorProfileImageContainer}>
+                                    <Image src={UserImage} alt="user image"/>
+                                </div>
+                                <div className={styles.recommendationAuthorName}>Nard1n Codes</div>
+                            </div>
+                                <div className={styles.recommendationTitle}>The Ultimate Javascript Course for Beginners</div>
+                        </div>
+                        <div className={styles.recommendationThumbnailContainer}>
+                            <Image className={styles.recommendationThumbnail} src={JSLogo} width={100} height={100} alt="article image" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
             )
