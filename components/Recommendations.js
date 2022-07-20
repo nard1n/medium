@@ -12,6 +12,10 @@ const styles = {
     accentedButton: `flex items-center justify-center text-sm bg-black text-white my-[2rem] py-[.6rem] rounded-full`,
     searchBar: `flex items-center gap-[.6rem] h-[2.6rem] border rounded-full px-[1rem]`,
     serachInput: `border-none outline-none bg-none w-full`,
+    authorContaier: `my-[2rem]`,
+    authorProfileImageContaier: `h-[5rem] w-[5rem] rounded-full overflow-hidden`,
+    authorName: `font-semibold mb-[.2rem] mt-[1rem]`,
+    authorFollowing:`text-[#787878]`,
 }
 
 const Recommendations = () => {
@@ -25,6 +29,20 @@ const Recommendations = () => {
                     type='text'
                     placeholder='Search'
                 />
+            </div>
+
+            <div className={styles.authorContaier}>
+                <div className={styles.authorProfileImageContaier}>
+                    <Image 
+                        src={UserImage}
+                        alt="author image"
+                        width={100}
+                        height={100}
+                    />
+                </div>
+                <div className={styles.authorName}>Nardin L</div>
+                <div className={styles.authorFollowing}>1M followers</div>
+
             </div>
         </div>
             )
