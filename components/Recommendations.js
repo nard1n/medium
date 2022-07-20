@@ -16,6 +16,9 @@ const styles = {
     authorProfileImageContaier: `h-[5rem] w-[5rem] rounded-full overflow-hidden`,
     authorName: `font-semibold mb-[.2rem] mt-[1rem]`,
     authorFollowing:`text-[#787878]`,
+    authorActions: `flex gap-[.6rem] my-[1rem]`,
+    actionButton: `bg-[#1A8917] rounded-full text-white px-[.6rem] py-[.4rem] text-sm`,
+    recommendationContainer: ``,
 }
 
 const Recommendations = () => {
@@ -42,6 +45,12 @@ const Recommendations = () => {
                 </div>
                 <div className={styles.authorName}>Nardin L</div>
                 <div className={styles.authorFollowing}>1M followers</div>
+                <div className={styles.authorActions}>
+                    <button className={styles.actionButton}>Follow</button>
+                    <button className={styles.actionButton}><MdMarkEmailUnread/></button>
+                </div>
+            </div>
+            <div className={styles.recommendationContainer}>
 
             </div>
         </div>
