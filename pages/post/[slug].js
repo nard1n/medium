@@ -1,5 +1,6 @@
 import ReadersNav from '../../components/ReadersNav';
 import Recommendations from '../../components/Recommendations';
+import ArticleMain from '../../components/ArticleMain'
 
 const styles = {
     content: `flex`,
@@ -9,7 +10,7 @@ const Post = () => {
     return (
         <div className={styles.content}>
             <ReadersNav />
-            <div>Article Main Space</div>
+            <ArticleMain />
             <Recommendations />
         </div>
     )
