@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { MdMarkEmailUnread } from 'react-icons/md'
-import ReplitLogo from '../static/replit.png'
-import TutorilaImg from '../static/tutorial.jpeg'
+import HomeOffice from '../static/homeOffice.jpg'
+import TutorilImg from '../static/tutorial.jpeg'
 import SampleLogo from '../static/sampleLogo.png'
 import UserImage from '../static/user.png'
 import JSLogo from '../static/jslogo.png'
@@ -83,3 +83,30 @@ const Recommendations = ({ author }) => {
 }
 
 export default Recommendations
+
+const recommendedPosts = [
+    {
+        title: 'How to freshen up you home office',
+        image: HomeOffice,
+        author: {
+            name: 'Nardin Codes',
+            image: UserImage
+        }
+    },
+    {
+        title: 'The Ultimate JavaScript Course for Beginners',
+        image: JSLogo,
+        author: {
+            name: 'Nardin Codes',
+            image: UserImage
+        }
+    },
+    {
+        title: 'Too late to become your own boss in 2022?',
+        image: TutorilImg,
+        author: {
+            name: 'Nardin Codes',
+            image: UserImage
+        }
+    },
+]
