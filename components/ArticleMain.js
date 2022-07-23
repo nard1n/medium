@@ -6,7 +6,7 @@ import { GrLinkedin } from 'react-icons/gr';
 import { HiOutlineLink } from 'react-icons/hi';
 import { BiBookmarks } from 'react-icons/bi';
 import { FiMoreHorizontal } from 'react-icons/fi';
-import Banner from '../static/banner.png';
+import Banner from '../static/homeOffice.jpg';
 import UserImage from '../static/user.png';
 
 const styles ={
@@ -59,11 +59,11 @@ const ArticleMain = () => {
             <div className={styles.articleMainContainer}>
                 <div className={styles.bannerContainer}>
                      <Image 
-                     className={styles.image}
-                     src={Banner}
-                     height={100}
-                     width={100}
-                     alt="Banner"
+                        className={styles.image}
+                        src={Banner}
+                        height={100}
+                        width={100}
+                        alt="Banner"
                      />
                 </div>
                 <h1 className={styles.title}>7 Free Tools to Increase Productivity in 2022</h1>
