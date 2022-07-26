@@ -1,5 +1,5 @@
-import { createContext, useEffect } from "react";
-import { collection, getDoc, setDoc, doc } from 'firebase/firestore'
+import { createContext, useEffect, useState } from "react";
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 
 const MediumContext = createContext()
@@ -10,9 +10,16 @@ const MediumProvider = ({ children }) => {
 
     useEffect(() => {
         const getUsers = async () => {
-            const querySnapshot = await getDocs(collection (db, 'users'))
+            const querySnapshot = await getDocs(collection(db, 'users'))
     
-            querySnapshot.docs.map(doc => console.log(doc))
+            setUsers(querySnapshot.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    data: {
+                        ...doc.data()
+                    }
+                }
+            }))
         }
 
         getUsers()
