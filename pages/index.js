@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import PostCard from "../components/postCard";
+import { MediumContext } from "../context/MediumContext";
+import { useContext } from "react";
 
 const styles = {
   wrapper:`mx-auto`,
@@ -10,6 +12,11 @@ const styles = {
 }
 
 export default function Home() {
+
+  const { users } = useContext(MediumContext)
+
+  console.log('users!', users)
+
   return (
     <div className={styles.wrapper}>
       <Header />
