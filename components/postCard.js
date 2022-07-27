@@ -3,6 +3,10 @@ import Link from 'next/link';
 import Logo from '../static/logo.png';
 import UserImage from '../static/user.png';
 import { FiBookmark } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+
 
 
 const styles = {
@@ -18,29 +22,48 @@ const styles = {
     postDetails: `flex flex-col flex-[2.5]`,
     category:`bg-[#F2F3F2] rounded-full p-1`,
     bookmarkContainer:`cursor-pointer`,
-    thumbnailContainer:``,
+    thumbnailContainer:`flex-1`,
 }
-const PostCard = () => {
+const PostCard = ({post}) => {
+
+    const [authorData, setAuthorData] = useState(null)
+
+    useEffect(() => {
+        const getAuthorData = async () => {
+            setAuthorData(
+                (await getDoc(doc(db, 'users', post.data.author))).data()
+            )
+        }
+
+        getAuthorData()
+
+    }, [post])
+
     return (
-        <Link href={`/post/123`}>
+        <Link href={`/post/${post.id}`}>
             <div className={styles.wrapper}>
                 <div className={styles.postDetails}>
                     <div className={styles.authorContainer}>
                         <div className={styles.authorImageContainer}>
                             <Image
-                                src={UserImage}
+                                src={Logo}
                                 alt="author image"
                                 className={styles.authorImage} 
                                 height={40}
                                 width={40}          
                             />
                         </div>
-                        <div className={styles.authorName}>Nardin L</div>
+                        <div className={styles.authorName}>{authorData?.name}</div>
                     </div>
-                    <h1 className={styles.title}>7 Free Tools to Increase Productivity in 2022</h1>
-                    <div className={styles.briefing}>Productivity is a skill that can be learned</div>
+                    <h1 className={styles.title}>{post.data.title}</h1>
+                    <div className={styles.briefing}>{post.data.brief}</div>
                     <div className={styles.detailsContainer}>
-                        <span className={styles.articleDetails}>Jul 11 • 5 min read • <span className={styles.category}>productivity</span></span>
+                        <span className={styles.articleDetails}>
+                            {new Date(post.data.postedOn).toLocaleString('en-US', {
+                                day: 'numeric',
+                                month: 'short',
+                            })} • {post.data.postLength} min read • <span className={styles.category}>{post.data.category}</span>
+                        </span>
                         <span  className={styles.bookmarkContainer}>
                             <FiBookmark className='h-5 w-5'/>
                         </span>
