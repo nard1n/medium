@@ -46,7 +46,8 @@ const PostCard = ({post}) => {
                     <div className={styles.authorContainer}>
                         <div className={styles.authorImageContainer}>
                             <Image
-                                src={Logo}
+                                src=
+                                    {`https://res.cloudinary.com/demo/image/fetch/${authorData?.imageUrl}`}
                                 alt="author image"
                                 className={styles.authorImage} 
                                 height={40}
