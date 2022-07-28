@@ -28,7 +28,8 @@ const styles ={
     articleText: `font-mediumSerif text-[1.3rem] text-[#292929]`,
 }
 
-const ArticleMain = () => {
+const ArticleMain = ({post, author}) => {
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
@@ -38,9 +39,13 @@ const ArticleMain = () => {
                         <Image className={`object-cover`} src={UserImage} width={100} height={100} alt ="user image"/>
                     </div>
                     <div className={styles.column}>
-                        <div>Nard1n Codes</div>
+                        <div>{author?.data?.name}</div>
                         <div className={styles.postDetails}>
-                            <span>July 20 • 7 min read • </span><span className={styles.listenButton}>
+                            <span>
+                            {new Date(post?.data?.postedOn).toLocaleString('en-US', {
+                                day: 'numeric',
+                                month: 'short',
+                            })} • {post?.data?.postLength} min read • </span><span className={styles.listenButton}>
                                 <AiFillPlayCircle /> Listen
                             </span>
                         </div>
@@ -66,18 +71,19 @@ const ArticleMain = () => {
                         alt="Banner"
                      />
                 </div>
-                <h1 className={styles.title}>7 Free Tools to Increase Productivity in 2022</h1>
+                <h1 className={styles.title}>{post?.data?.title}</h1>
                 <h4 className={styles.subtitle}>
                     <div>
-                        Nardin Codes, July 20, 2022
+                        {author?.data?.name}, {' '}
+                        {new Date(post?.data?.postedOn).toLocaleString('en-US', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                        })}
                     </div>
-                    <div>Brief: Productivity is a skill that can be learned.</div>    
+                    <div>{post?.data?.brief}</div>    
                 </h4>
-                <div className={styles.articleText}>
-                    Lorem ipsum dolor sit amet. Est iure doloremque rem dolorem maxime est deleniti dolores et nihil quisquam sed obcaecati quae ut nihil dolor et omnis minima. Ea atque aspernatur et praesentium obcaecati ut itaque nisi et consequatur voluptate eum aliquid iste. Sed voluptates minus sed doloribus ducimus et debitis quisquam et illum sunt sed odit dignissimos est nulla laborum. In voluptas vero nam voluptas amet voluptatem provident ea nulla voluptatum ut temporibus molestiae aut temporibus explicabo.
-                    Hic dolorum illum ab beatae tempore ad dolorem laborum est quod consequatur id illo quibusdam est neque cupiditate. Eum omnis itaque 33 expedita laborum cum quisquam tempore et culpa eveniet nam voluptatem velit nam doloremque voluptas a voluptas nemo. Et magni obcaecati qui reprehenderit quia consequatur voluptas aut aperiam voluptas.
-                    Qui doloremque beatae eum Quis sequi et atque nihil sed fugit galisum nobis tenetur At sunt placeat ab enim voluptatem. Ut aliquid molestias qui aliquid ab cupiditate omnis At aliquam dolores ut eligendi officia a beatae veniam.
-                </div>
+                <div className={styles.articleText}>{post?.data?.body}</div>
             </div>
             </div>
         </div>
